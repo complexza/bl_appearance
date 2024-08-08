@@ -100,6 +100,7 @@ export type TTattooEntry = {
     label: string
     hash: number
     zone: number
+	opacity?: number
     dlc?: string
 }
 

@@ -49,6 +49,8 @@ export default {
     "REMOVETATTOO_TITLE": "Remove Tattoo",
     "ADDTATTOO_TITLE": "Add Tattoo",
     "TATTOO_TITLE": "Tattoo",
+    "TATTOO_OPACITY": "Opacity",
+    "TATTOO_LIST": "Tattoos",
     "DLCOPT_TITLE": "DLC Options",
     "ZONE_TITLE": "Zone",
     "MENU_TITLE": "Menu",

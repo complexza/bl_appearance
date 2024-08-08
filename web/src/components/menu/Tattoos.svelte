@@ -1,6 +1,5 @@
 <script lang="ts">
     import { APPEARANCE, TATTOOS, LOCALE } from '@stores/appearance';
-    import { Send } from '@enums/events';
     import type { TDLCTattoo, TTattooEntry } from '@typings/apperance';
     import Wrapper from '@components/micro/Wrapper.svelte';
     import IconPlus from '@components/icons/IconPlus.svelte';
@@ -9,8 +8,8 @@
     import Dropdown from '@components/micro/Dropdown.svelte';
     import Divider from '@components/micro/Divider.svelte';
     import IconCancel from '@components/icons/IconCancel.svelte';
+    import Slider from '@components/micro/Slider.svelte';
     import { randomID } from '@utils/misc';
-    import { SendEvent } from '@utils/eventsHandlers';
 
     let deleteOptionIndex: number = null;
 
@@ -220,7 +219,7 @@
 
                         <div
                             transition:slide
-                            class="flex flex-col items-center justify-center w-full"
+                            class="flex flex-col items-center justify-center w-full mt-2"
                         >
                             <Dropdown
                                 on:click={() => {
@@ -229,6 +228,17 @@
                                 }}
                                 display={$LOCALE.TATTOOPTIONS_SUBTITLE}
                             >
+                                <p class="w-full h-[3vh] p-[0.5vh] opacity-75">{$LOCALE.TATTOO_OPACITY} {tattoo.opacity}</p>
+                                <Slider
+                                    bind:value={tattoo.opacity}
+                                    min={0.1}
+                                    max={1.0}
+                                    step={0.1}
+                                    on:change={({ detail }) =>
+                                        changeSelected(i, detail)
+                                    }
+                                />
+                                <p class="w-full h-[3vh] p-[0.5vh] opacity-75">{$LOCALE.TATTOO_LIST}</p>
                                 <input
                                     type="text"
                                     class="w-full h-[3vh] p-[0.5vh]"
