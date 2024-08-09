@@ -219,6 +219,27 @@
 
                         <div
                             transition:slide
+                            class="flex flex-col items-center justify-center w-full"
+                        >
+                            <span
+                                class="opacity-75 w-full flex items-center justify-between gap-[0.5vh]"
+                            >
+                            </span>
+
+                            <p class="w-full h-[3vh] opacity-75">{$LOCALE.TATTOO_OPACITY}</p>
+                            <Slider
+                                bind:value={tattoo.opacity}
+                                min={0.1}
+                                max={1.0}
+                                step={0.1}
+                                on:change={({ detail }) =>
+                                    changeSelected(i, detail)
+                                }
+                            />
+                        </div>
+
+                        <div
+                            transition:slide
                             class="flex flex-col items-center justify-center w-full mt-2"
                         >
                             <Dropdown
@@ -228,17 +249,6 @@
                                 }}
                                 display={$LOCALE.TATTOOPTIONS_SUBTITLE}
                             >
-                                <p class="w-full h-[3vh] p-[0.5vh] opacity-75">{$LOCALE.TATTOO_OPACITY} {tattoo.opacity}</p>
-                                <Slider
-                                    bind:value={tattoo.opacity}
-                                    min={0.1}
-                                    max={1.0}
-                                    step={0.1}
-                                    on:change={({ detail }) =>
-                                        changeSelected(i, detail)
-                                    }
-                                />
-                                <p class="w-full h-[3vh] p-[0.5vh] opacity-75">{$LOCALE.TATTOO_LIST}</p>
                                 <input
                                     type="text"
                                     class="w-full h-[3vh] p-[0.5vh]"
